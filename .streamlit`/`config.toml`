@@ -1,0 +1,12 @@
+[theme]
+base = "light"
+primaryColor = "#1a2a4a"
+backgroundColor = "#f4f7fb"
+secondaryBackgroundColor = "#ffffff"
+textColor = "#1a2a4a"
+
+[server]
+# Max upload size in MB for any file uploader in the app (default is 200).
+# A resume PDF should never need more than a few MB, so this also protects
+# the server from accidentally huge uploads.
+maxUploadSize = 5
