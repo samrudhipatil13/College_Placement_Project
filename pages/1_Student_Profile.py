@@ -50,8 +50,30 @@ dob = st.date_input(
 address = st.text_area("Address", value=pre('address'))
 
 st.subheader("Academic Details")
-branch = st.text_input("Branch", value=pre('branch'))
-department = st.text_input("Department", value=pre('department'))
+
+BRANCH_DEPARTMENTS = {
+    "Computer": ["CSE", "Data Science"],
+    "Civil": ["Civil Engineering"],
+    "Mechanical": ["Mechanical Engineering"],
+    "Electrical": ["Electrical Engineering"],
+    "Electronics & Telecommunication": ["E&TC Engineering"],
+}
+
+branch = st.selectbox(
+    "Branch",
+    list(BRANCH_DEPARTMENTS.keys()),
+    index=list(BRANCH_DEPARTMENTS.keys()).index(pre('branch', 'Computer'))
+    if pre('branch', 'Computer') in BRANCH_DEPARTMENTS else 0,
+)
+
+dept_options = BRANCH_DEPARTMENTS[branch]
+current_dept = pre('department', dept_options[0])
+department = st.selectbox(
+    "Department",
+    dept_options,
+    index=dept_options.index(current_dept) if current_dept in dept_options else 0,
+)
+
 cgpa = st.number_input("CGPA", min_value=0.0, max_value=10.0, step=0.01, value=float(pre('cgpa', 0.0)))
 ssc = st.number_input("SSC %", min_value=0.0, max_value=100.0, step=0.01, value=float(pre('ssc_percentage', 0.0)))
 hsc = st.number_input("HSC %", min_value=0.0, max_value=100.0, step=0.01, value=float(pre('hsc_percentage', 0.0)))

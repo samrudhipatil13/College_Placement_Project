@@ -9,4 +9,4 @@ textColor = "#1a2a4a"
 # Max upload size in MB for any file uploader in the app (default is 200).
 # A resume PDF should never need more than a few MB, so this also protects
 # the server from accidentally huge uploads.
-maxUploadSize = 5
+maxUploadSize = 2
